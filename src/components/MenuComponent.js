@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
 import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
+//import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+//import Dishdetail from './DishdetailComponent';
 
 class Menu extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Menu extends Component {
     return (
       <div className="container">
         <div className="row">{menu}</div>
+        {/* Ctrl + K then press Ctrl + C if you’re using Windows */}
       </div>
     );
   }
