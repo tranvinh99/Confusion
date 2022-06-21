@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
+import DishDetail from "./DishdetailComponent";
 //import DishDetail from './DishdetailComponent';
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
@@ -14,6 +15,9 @@ class Main extends Component {
       dishes: DISHES,
       selectedDish: null,
     };
+  }
+  onDishSelect(dishId) {
+    this.setState({ selectedDish: dishId });
   }
 
   render() {
@@ -29,7 +33,21 @@ class Main extends Component {
           <Route
             exact
             path="/menu"
-            component={() => <Menu dishes={this.state.dishes} />}
+            component={() => (
+              <React.Fragment>
+                <Menu
+                  dishes={this.state.dishes}
+                  onClick={(dishId) => this.onDishSelect(dishId)}
+                />
+                <DishDetail
+                  dish={
+                    this.state.dishes.filter(
+                      (dish) => dish.id === this.state.selectedDish
+                    )[0]
+                  }
+                />
+              </React.Fragment>
+            )}
           />
           <Redirect to="/home" />
         </Switch>

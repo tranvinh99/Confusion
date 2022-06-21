@@ -18,7 +18,7 @@ function RenderDish({ dish }) {
 function RenderComments({ comments }) {
   if (comments != null) {
     return (
-      <div className="col-12 col-md-5 m-1">
+      <div className="col-12 col-md-5 m-1 border border-black">
         <h4>Comments</h4>
         <ul className="list-unstyled">
           {comments.map((comment) => {
@@ -26,7 +26,7 @@ function RenderComments({ comments }) {
               <li key={comment.id}>
                 <p>{comment.comment}</p>
                 <p>
-                  -- {comment.author} ,{" "}
+                  By <strong>{comment.author}</strong> ,{" "}
                   {new Intl.DateTimeFormat("en-US", {
                     year: "numeric",
                     month: "short",
