@@ -40,6 +40,16 @@ function Contact(props) {
         </div>
         <div className="col-12 col-sm-6 offset-sm-1">
           <h5>Map of our Location</h5>
+          <iframe
+            title="address"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.5236503473993!2d114.21604661542818!3d22.333848147318914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340406b77660041b%3A0x1e1faa9bb38e36f3!2s121%20Clear%20Water%20Bay%20Rd%2C%20Ngau%20Chi%20Wan%2C%20Hong%20Kong!5e0!3m2!1sen!2s!4v1656124059314!5m2!1sen!2s"
+            width="600"
+            height="450"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            className="google-map"
+          ></iframe>
         </div>
         <div className="col-12 col-sm-11 offset-sm-1">
           <div className="btn-group" role="group">
