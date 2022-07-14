@@ -63,7 +63,7 @@ class CommentForm extends Component {
 
           <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
             <ModalHeader toggle={this.toggleModal}>
-              <h4 class="text-info">Submit Comment</h4>
+              <h4 class="text-primary">Submit Comment</h4>
             </ModalHeader>
             <ModalBody>
               <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
@@ -130,7 +130,7 @@ class CommentForm extends Component {
                 </Row>
                 <Row className="form-group">
                   <Col md={12}>
-                    <Button type="submit" color="info">
+                    <Button type="submit" color="primary">
                       <span class="text-light">Submit</span>
                     </Button>
                   </Col>
@@ -151,7 +151,7 @@ function RenderDish({ dish }) {
         <CardImg top src={dish.image} alt={dish.name} />
         <CardBody>
           <CardTitle>
-            <h5 class="mb-2 text-info">{dish.name}</h5>
+            <h5 class="mb-2 text-primary">{dish.name}</h5>
           </CardTitle>
           <CardText>{dish.description}</CardText>
         </CardBody>
@@ -164,7 +164,7 @@ function RenderComments({ comments, addComment, dishId }) {
   if (comments != null) {
     return (
       <div className="col-12 col-md-5 m-1">
-        <h4 class="mb-2 text-info">Comments</h4>
+        <h4 class="mb-2 text-primary">Comments</h4>
         <ul className="list-unstyled">
           {comments.map((comment) => {
             return (
