@@ -70,7 +70,7 @@ class CommentForm extends Component {
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="rating">
-                      <h6 classs="text-secondary">Rating</h6>
+                      <h6 className="text-secondary">Rating</h6>
                     </Label>
                     <Control.select
                       model=".rating"
@@ -88,7 +88,7 @@ class CommentForm extends Component {
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="author">
-                      <h6 classs="text-secondary">Your Name</h6>
+                      <h6 className="text-secondary">Your Name</h6>
                     </Label>
                     <Control.text
                       model=".author"
@@ -117,7 +117,7 @@ class CommentForm extends Component {
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="comment">
-                      <h6 classs="text-secondary">Comment</h6>
+                      <h6 className="text-secondary">Comment</h6>
                     </Label>
                     <Control.textarea
                       model=".comment"
@@ -221,7 +221,6 @@ const DishDetail = (props) => {
             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
           </Breadcrumb>
           <div className="col-12">
-            {/* <h3 class="text-info">Menu</h3> */}
             <h3 class="text-secondary">Menu</h3>
             <hr />
           </div>
