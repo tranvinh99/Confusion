@@ -19,6 +19,7 @@ import {
 import { Link } from "react-router-dom";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from "../shared/baseUrl";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -63,14 +64,14 @@ class CommentForm extends Component {
 
           <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
             <ModalHeader toggle={this.toggleModal}>
-              <h4 class="text-primary">Submit Comment</h4>
+              <h4 class="text-info">Submit Comment</h4>
             </ModalHeader>
             <ModalBody>
               <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="rating">
-                      <h6 className="text-secondary">Rating</h6>
+                      <h6 classs="text-secondary">Rating</h6>
                     </Label>
                     <Control.select
                       model=".rating"
@@ -88,7 +89,7 @@ class CommentForm extends Component {
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="author">
-                      <h6 className="text-secondary">Your Name</h6>
+                      <h6 classs="text-secondary">Your Name</h6>
                     </Label>
                     <Control.text
                       model=".author"
@@ -117,7 +118,7 @@ class CommentForm extends Component {
                 <Row className="form-group">
                   <Col md={12}>
                     <Label htmlFor="comment">
-                      <h6 className="text-secondary">Comment</h6>
+                      <h6 classs="text-secondary">Comment</h6>
                     </Label>
                     <Control.textarea
                       model=".comment"
@@ -130,7 +131,7 @@ class CommentForm extends Component {
                 </Row>
                 <Row className="form-group">
                   <Col md={12}>
-                    <Button type="submit" color="primary">
+                    <Button type="submit" color="info">
                       <span class="text-light">Submit</span>
                     </Button>
                   </Col>
@@ -148,10 +149,11 @@ function RenderDish({ dish }) {
   return (
     <div className="col-12 col-md-5 m-1">
       <Card>
-        <CardImg top src={dish.image} alt={dish.name} />
+        {/* <CardImg top src={dish.image} alt={dish.name} /> */}
+        <CardImg top src={baseUrl + dish.image} alt={dish.name} />
         <CardBody>
           <CardTitle>
-            <h5 class="mb-2 text-primary">{dish.name}</h5>
+            <h5 class="mb-2 text-info">{dish.name}</h5>
           </CardTitle>
           <CardText>{dish.description}</CardText>
         </CardBody>
@@ -160,11 +162,12 @@ function RenderDish({ dish }) {
   );
 }
 
+// function RenderComments({comments}) {
 function RenderComments({ comments, addComment, dishId }) {
   if (comments != null) {
     return (
       <div className="col-12 col-md-5 m-1">
-        <h4 class="mb-2 text-primary">Comments</h4>
+        <h4 class="mb-2 text-info">Comments</h4>
         <ul className="list-unstyled">
           {comments.map((comment) => {
             return (
@@ -182,6 +185,7 @@ function RenderComments({ comments, addComment, dishId }) {
             );
           })}
         </ul>
+        {/* <CommentForm /> */}
         <CommentForm dishId={dishId} addComment={addComment} />
       </div>
     );
@@ -189,6 +193,32 @@ function RenderComments({ comments, addComment, dishId }) {
     return <div></div>;
   }
 }
+
+// function RenderComments({comments}) {
+// if (comments != null) {
+// return (
+// <div className="col-12 col-md-5 m-1">
+// <h4>Comments</h4>
+// <ul className="list-unstyled">
+// {comments.map((comment) => {
+// return (
+// <li key={comment.id}>
+// <p>{comment.comment}</p>
+// <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+// </li>
+// );
+// })}
+// </ul>
+// </div>
+// );
+// }
+// else {
+// return (
+// <div></div>
+// );
+// }
+
+// }
 
 const DishDetail = (props) => {
   if (props.isLoading) {
@@ -221,12 +251,14 @@ const DishDetail = (props) => {
             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
           </Breadcrumb>
           <div className="col-12">
+            {/* <h3 class="text-info">Menu</h3> */}
             <h3 class="text-secondary">Menu</h3>
             <hr />
           </div>
         </div>
         <div className="row  text-dark text-justify">
           <RenderDish dish={props.dish} />
+          {/* <RenderComments comments={props.comments}/> */}
           <RenderComments
             comments={props.comments}
             addComment={props.addComment}
